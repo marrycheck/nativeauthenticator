@@ -129,6 +129,8 @@ class NativeAuthenticator(Authenticator):
     def successful_login(self, username):
         if self.login_attempts.get(username):
             self.login_attempts.pop(username)
+            print("-------successful_login,pop username: -----")
+            print(username)
 
     @gen.coroutine
     def authenticate(self, handler, data):
@@ -149,10 +151,10 @@ class NativeAuthenticator(Authenticator):
             user.is_authorized,
             user.is_valid_password(password)
         ]
-        print("---------------------")
+        print("----------validations-----------")
         print(validations[0])
         print(validations[1])
-        print("---------------------")
+        print("----------validations-----------")
         if user.has_2fa:
             validations.append(user.is_valid_token(data.get('2fa')))
 
