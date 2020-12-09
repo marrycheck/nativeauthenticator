@@ -34,6 +34,8 @@ class UserInfo(Base):
         """Checks if a password passed matches the
         password stored"""
         encoded_pw = bcrypt.hashpw(password.encode(), self.password)
+        print("------------is_valid_password encoded_pw: ---------------")
+        print(encoded_pw)
         return encoded_pw == self.password
 
     @classmethod
