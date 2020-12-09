@@ -127,6 +127,9 @@ class NativeAuthenticator(Authenticator):
         return True
 
     def successful_login(self, username):
+        print("--------login_attempts---------")
+        print(len(self.login_attempts))
+        print(self.login_attempts)
         if self.login_attempts.get(username):
             self.login_attempts.pop(username)
             print("-------successful_login,pop username: -----")
