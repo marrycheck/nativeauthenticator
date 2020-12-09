@@ -147,7 +147,7 @@ class NativeAuthenticator(Authenticator):
             return
         
         print("----------user info-----------")
-        print(user.name)
+        print(user.username)
         print(user.password)
         print(user.is_authorized)
         print(user.has_2fa)
