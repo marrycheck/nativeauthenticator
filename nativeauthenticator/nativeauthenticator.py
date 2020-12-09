@@ -134,6 +134,8 @@ class NativeAuthenticator(Authenticator):
     def authenticate(self, handler, data):
         username = self.normalize_username(data['username'])
         password = data['password']
+        print("--------------username:" + username)
+        print("--------------password:" + password)
 
         user = self.get_user(username)
         if not user:
@@ -147,6 +149,8 @@ class NativeAuthenticator(Authenticator):
             user.is_authorized,
             user.is_valid_password(password)
         ]
+        print("--------------validations:" + validations[0])
+        print("--------------validations:" + validations[1])
         if user.has_2fa:
             validations.append(user.is_valid_token(data.get('2fa')))
 
