@@ -149,8 +149,10 @@ class NativeAuthenticator(Authenticator):
             user.is_authorized,
             user.is_valid_password(password)
         ]
-        print("--------------validations:" + validations[0])
-        print("--------------validations:" + validations[1])
+        print("---------------------")
+        print(validations[0])
+        print(validations[1])
+        print("---------------------")
         if user.has_2fa:
             validations.append(user.is_valid_token(data.get('2fa')))
 
