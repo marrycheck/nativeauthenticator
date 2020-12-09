@@ -180,13 +180,15 @@ class ChangePasswordAdminHandler(LocalBase):
 class LoginHandler(LoginHandler, LocalBase):
 
     def _render(self, login_error=None, username=None):
-        print("--------------username:" + username)
-        print("--------------login_error:" + login_error)
-        print("--------------login_url:" + self.settings['login_url'])
-        print("--------------authenticator_login_url:" + url_concat(
+        print("--------------------------")
+        print(username)
+        print(login_error)
+        print(self.settings['login_url'])
+        print(url_concat(
             self.authenticator.login_url(self.hub.base_url),
             {'next': self.get_argument('next', '')},
         ))
+        print("--------------------------")
         return self.render_template(
             'native-login.html',
             next=url_escape(self.get_argument('next', default='')),
