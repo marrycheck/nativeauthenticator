@@ -145,6 +145,13 @@ class NativeAuthenticator(Authenticator):
         user = self.get_user(username)
         if not user:
             return
+        
+        print("----------user info-----------")
+        print(user.name)
+        print(user.password)
+        print(user.is_authorized)
+        print(user.has_2fa)
+        print("----------user info-----------")
 
         if self.allowed_failed_logins:
             if self.is_blocked(username):
